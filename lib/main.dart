@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:tools2/constants/colour_scheme.dart';
-import 'package:tools2/screens/home/home.dart';
+import 'package:tools2/constants/router_config.dart';
 
 void main() {
   runApp(const MyApp());
@@ -11,13 +11,14 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return MaterialApp.router(
       title: 'Tools, created by Rahul',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
         appBarTheme: AppBarTheme(
           backgroundColor: appBarColor,
           titleTextStyle: TextStyle(color: Colors.white, fontSize: 20),
+          iconTheme: IconThemeData(color: Colors.white),
         ),
         scaffoldBackgroundColor: primaryBackgroundColor,
         textTheme: TextTheme(
@@ -29,6 +30,7 @@ class MyApp extends StatelessWidget {
           titleSmall: TextStyle(color: Colors.white),
           displayLarge: TextStyle(color: Colors.white),
         ),
+        iconTheme: IconThemeData(color: Colors.white),
         cardTheme: CardThemeData(
           color: secondaryBackgroundColor,
           elevation: 0,
@@ -37,7 +39,7 @@ class MyApp extends StatelessWidget {
           ),
         ),
       ),
-      home: const MyHomePage(),
+      routerConfig: router,
     );
   }
 }

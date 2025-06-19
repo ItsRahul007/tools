@@ -5,14 +5,14 @@ import 'package:tools2/constants/screen_counts.dart';
 import 'package:tools2/test.dart';
 import 'package:youtube_explode_dart/youtube_explode_dart.dart';
 
-class MyHomePage extends StatefulWidget {
-  const MyHomePage({super.key});
+class HomePage extends StatefulWidget {
+  const HomePage({super.key});
 
   @override
-  State<MyHomePage> createState() => _MyHomePageState();
+  State<HomePage> createState() => _HomePageState();
 }
 
-class _MyHomePageState extends State<MyHomePage> {
+class _HomePageState extends State<HomePage> {
   final controller = Test();
 
   Future<bool> manualRequestPermission() async {
@@ -119,7 +119,7 @@ class _MyHomePageState extends State<MyHomePage> {
             children: screens
                 .map(
                   (e) => InkWell(
-                    onTap: () => e.onPress(),
+                    onTap: () => e.onPress(context),
                     child: Container(
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(10),
