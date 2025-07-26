@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:permission_handler/permission_handler.dart';
 import 'package:tools2/constants/colour_scheme.dart';
 import 'package:tools2/constants/screen_counts.dart';
@@ -16,6 +17,7 @@ class _HomePageState extends State<HomePage> {
   final controller = Test();
 
   Future<bool> manualRequestPermission() async {
+    await Permission.notification.request();
     PermissionStatus manageExternalStorageStatus =
         await Permission.manageExternalStorage.status;
 
@@ -91,7 +93,7 @@ class _HomePageState extends State<HomePage> {
 
                   if (gotPermission) {
                     await controller.onDownloadClick(video);
-                    Navigator.pop(context);
+                    context.pop();
                   }
                 },
                 leading: Text((index + 1).toString()),
